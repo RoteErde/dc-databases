@@ -7,6 +7,8 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: password
     mem_limit: 300M
+    volumes:
+      - mysqldb-vol:/var/lib/mysql
   adminer:
       image: adminer
       restart: always
@@ -16,9 +18,14 @@ services:
     image: mongo:3.2-jessie
     restart: always
     mem_limit: 300M
+    volumes:
+      - mongodb-vol:/data/db
     ports:
       - 27017:27017
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: password
 
+volumes: 
+  mysqldb-vol:
+  mongodb-vol:
