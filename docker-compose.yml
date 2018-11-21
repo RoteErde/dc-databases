@@ -27,7 +27,16 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: password
+  elastic:
+    image: elasticsearch:1.7
+    mem_limit: 512m
+    volumes:
+      - es-vol:/data/esdata
+    ports:
+      - 9200:9200
+      - 9300:9300
 
 volumes: 
   mysqldb-vol:
   mongodb-vol:
+  es-vol:
