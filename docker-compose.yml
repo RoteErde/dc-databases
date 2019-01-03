@@ -17,7 +17,7 @@ services:
       ports:
         - 5080:8080
   mongo:
-    image: mongo:3.2-jessie
+    image: mongo:3.2.12-jessie
     restart: always
     mem_limit: 300M
     volumes:
